@@ -4,15 +4,18 @@
 ### Table of Contents
 1. [Description](#1-description)
 2. [Architecture Folders](#2-architecture-folders)
-3. [Just do it](#3-just-do-it)
+3. [Details](#3-details)
+4. [Just do it](#4-just-do-it)
   
 #### 1. Description
 This is a easy structure to work within Laravel, in order to DDD architecture. 
 Of course, maybe could be better. Tell me if you think so.
-In this case, I tried do not make strong changes on default Laravel's folder structure, to not need to make changes on his code.
+In this case, I tried do not make strong changes on default Laravel's folder structure, to not need to make changes on his code.  
 It's so simple like use separated modules perform by Nicolas Widart, and a few adds on the Laravel folders.  
-( <a href="https://docs.laravelmodules.com">nWidart Modules</a> and his <a href="https://github.com/nWidart/laravel-modules">github place</a> )  
-  
+( <a href="https://docs.laravelmodules.com">nWidart Modules</a> and his <a href="https://github.com/nWidart/laravel-modules">github place</a> ).  
+In the future, each module should have 3 first folders, for infrastructure, application, and domain. By now, the subfolders are without this parents.
+On the same way that Laravel is not exactly a MVC framework, either is a DDD framework. It allows us to do what we want.  
+
 #### 2. Architecture Folders
 ```
 Source					 		
@@ -42,15 +45,22 @@ Source
 					middlewares		
 					requests		
 			models				
-				DB      (tables, extends from abstract layer)	
-				Logic   (business objects)
+				DB      	(tables, extends from abstract layer)	
+				Logic   	(business objects)
+				Exceptions
+				ValueObjects
+				Contracts	(interfaces)
 			providers				
 			resources				
 				views			
 					back    (admin users)
 					front   (final users)
 					emails  (templates)
-			routes				
+				json			
+			routes			(different access channels to the module) 				
+				api			
+				command			
+				web			
 			usecases				
 			tests				
 				feature			
@@ -63,8 +73,17 @@ Source
 			Has a separate laywer for external libraries, that is used by project modules.				
 
 ```  
+  
+  
+#### 3. Details
+##### PublicConnector.php 
+This is the first door to get everything in a module and should be the only one.  
+It has the same name on each module.  
+It's goal is provide simple access to all external requirements.  
+Sometimes, after a while, maybe you will not remember all the abilities of the module, or how you should invoke a certain feature. Here, other modules would find all features of this module.
 
-#### 3. Just do it
+
+#### 4. Just do it
 1. Install Laravel.
 2. Install modules structure.
 3. Add others folders.
