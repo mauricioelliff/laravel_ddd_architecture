@@ -14,7 +14,7 @@ In this case, I tried do not make strong changes on default Laravel's folder str
 It's so simple like use separated modules perform by Nicolas Widart, and a few adds on the Laravel folders.  
 ( <a href="https://docs.laravelmodules.com">nWidart Modules</a> and his <a href="https://github.com/nWidart/laravel-modules">github place</a> ).  
 In the future, each module should have 3 first folders, for infrastructure, application, and domain. By now, the subfolders are without this parents.
-On the same way that Laravel is not exactly a MVC framework, either is a DDD framework. It allows us to do what we want.  
+  
 
 #### 2. Architecture Folders
 ```
