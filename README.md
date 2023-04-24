@@ -13,7 +13,7 @@ Of course, maybe could be better. Tell me if you think so.
 In this case, I tried do not make strong changes on default Laravel's folder structure, to not need to make changes on his code.  
 It's so simple like use separated modules perform by Nicolas Widart, and a few adds on the Laravel folders.  
 ( <a href="https://docs.laravelmodules.com">nWidart Modules</a> and his <a href="https://github.com/nWidart/laravel-modules">github place</a> ).  
-In the future, each module should have 3 first folders, for infrastructure, application, and domain. By now, the subfolders are without this parents.
+In the future, each module should have 3 first folders, for infrastructure, application, and domain. By now, only the folder "models" has them.
   
 
 #### 2. Architecture Folders
@@ -45,11 +45,14 @@ Source
 					middlewares		
 					requests		
 			models				
-				DB      	(tables, extends from abstract layer)	
-				Logic   	(business objects)
-				Exceptions
-				ValueObjects
-				Contracts	(interfaces)
+				application
+					usecases
+				domain
+					DB      	(tables, extends from abstract layer)	
+					Exceptions
+					ValueObjects
+					Contracts	(interfaces)
+				infrastructure
 			providers				
 			resources				
 				views			
@@ -61,7 +64,6 @@ Source
 				api			
 				command			
 				web			
-			usecases				
 			tests				
 				feature			
 					integration   (using other components and libraries)
